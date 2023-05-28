@@ -4,4 +4,27 @@
   right: 20px;
   z-index: 9999;
 }
-html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
+
+html, body {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden
+}
+
+.form-label {
+  margin-left: 20px;
+  margin-right: 10px;
+  position: fixed;
+  bottom: 5px;
+}
+
+#sizeRange {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  z-index: 999;
+}
