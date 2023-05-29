@@ -2,9 +2,12 @@ import { loadGLTF } from "./libs/loader.js";
 
 const buttonStart = document.getElementById('startButton');
 const buttonStop = document.getElementById('stopButton');
+const btnVertical = document.getElementById('turnVertical');
+const btnHorizontal = document.getElementById('turnHorizontal');
 buttonStop.style.display = 'none';
 
 const THREE = window.MINDAR.IMAGE.THREE;
+let isARRunning = false;
 
 const mindarThree = new window.MINDAR.IMAGE.MindARThree({
   container: document.body,
@@ -37,23 +40,37 @@ function startMindAR() {
       const scaleValue = rangeInput.value;
       furnModel.scene.scale.set(scaleValue, scaleValue, scaleValue);
     });
+
+    btnVertical.addEventListener('click', () => {
+      furnModel.scene.rotation.x += Math.PI / 2;
+      console.log('Повернули на 90 градусов по вертикали');
+    });
+
+    btnHorizontal.addEventListener('click', () => {
+      furnModel.scene.rotation.y += Math.PI / 2;
+      console.log('Повернули на 90 градусов по горизонтали');
+    });
   }
   start();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   buttonStart.addEventListener('click', () => {
-    startMindAR();
-    buttonStart.style.display = 'none';
-    buttonStop.style.display = 'block';
+    if (!isARRunning) {
+      startMindAR();
+      isARRunning = true;
+      buttonStart.style.display = 'none';
+      buttonStop.style.display = 'block';
+    }
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
   buttonStop.addEventListener('click', () => {
-    mindarThree.stop();
-    console.log('click');
-    buttonStop.style.display = 'none';
-    buttonStart.style.display = 'block';
+    if (isARRunning) {
+      mindarThree.stop();
+      console.log('click');
+      isARRunning = false;
+      buttonStop.style.display = 'none';
+      buttonStart.style.display = 'block';
+    }
   });
 });

@@ -5,6 +5,13 @@
   z-index: 9999;
 }
 
+#startButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
 html, body {
   position: relative;
   margin: 0;
@@ -13,18 +20,39 @@ html, body {
   overflow: hidden
 }
 
+.ar-model-changes {
+  display: none;
+}
+
 .form-label {
   margin-left: 20px;
   margin-right: 10px;
-  position: fixed;
-  bottom: 5px;
 }
 
-#sizeRange {
+.range-size {
+  display: flex;
+  align-items: center;
   position: fixed;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 9999;
   width: 80%;
-  z-index: 999;
+}
+
+#sizeRange {
+  width: 100%;
+}
+
+.buttons-container {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+.btn-style {
+  background-color: blueviolet;
+  color: aliceblue;
 }
