@@ -4,7 +4,10 @@ const buttonStart = document.getElementById('startButton');
 const buttonStop = document.getElementById('stopButton');
 const btnVertical = document.getElementById('turnVertical');
 const btnHorizontal = document.getElementById('turnHorizontal');
+const blockModelChanges = document.getElementById('ar-model-changes');
+
 buttonStop.style.display = 'none';
+
 
 const THREE = window.MINDAR.IMAGE.THREE;
 let isARRunning = false;
@@ -59,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isARRunning) {
       startMindAR();
       isARRunning = true;
+      blockModelChanges.style.display = 'block';
       buttonStart.style.display = 'none';
       buttonStop.style.display = 'block';
     }
@@ -69,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mindarThree.stop();
       console.log('click');
       isARRunning = false;
+      blockModelChanges.style.display = 'none';
       buttonStop.style.display = 'none';
       buttonStart.style.display = 'block';
     }

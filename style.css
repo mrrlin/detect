@@ -20,7 +20,7 @@ html, body {
   overflow: hidden
 }
 
-.ar-model-changes {
+#ar-model-changes {
   display: none;
 }
 
